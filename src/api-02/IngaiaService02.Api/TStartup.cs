@@ -13,15 +13,20 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using System.IO;
-using IngaiaService01.Data;
+using IngaiaService02.Api.Infra.Services;
+using IngaiaService02.Api.Infra.Test;
+using IngaiaService02.Domain;
 
-namespace IngaiaService01.Api
+namespace IngaiaService02.Api
 {
-    public class Startup
+    public class TStartup
     {
-        public Startup(IConfiguration configuration)
+
+     
+        public TStartup(IConfiguration configuration)
         {
             Configuration = configuration;
+          
         }
 
         public IConfiguration Configuration { get; }
@@ -29,19 +34,20 @@ namespace IngaiaService01.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
-            services.AddTransient<IPropertyCategoryData, PropertyCategoryData>();
             services.AddControllers();
-            services.AddSwaggerGen(x =>
-          {
-              x.SwaggerDoc("v1", new OpenApiInfo { Title = "Ingaia API", Version = "v1" });
-              var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-              var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-              if (File.Exists(xmlPath))
-                  x.IncludeXmlComments(xmlPath);
+            services.AddScoped<IPropertyCategoryService, PropertyCategoryServiceFake>();
+            services.AddScoped<ICalculatePropertyValue, CalculatePropertyValue>();
 
-              x.EnableAnnotations();
-          });
+            services.AddSwaggerGen(x =>
+           {
+               x.SwaggerDoc("v1", new OpenApiInfo { Title = "External API", Version = "v1" });
+               var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+               var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+               if (File.Exists(xmlPath))
+                   x.IncludeXmlComments(xmlPath);
+
+               x.EnableAnnotations();
+           });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -62,7 +68,7 @@ namespace IngaiaService01.Api
             app.UseSwaggerUI(x =>
             {
                 x.RoutePrefix = string.Empty;
-                x.SwaggerEndpoint("/swagger/v1/swagger.json", "Ingaia Teste api 01");
+                x.SwaggerEndpoint("/swagger/v1/swagger.json", "ingaia Teste");
             });
 
             app.UseEndpoints(endpoints =>

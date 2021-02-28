@@ -13,14 +13,19 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using System.IO;
+using IngaiaService02.Api.Infra.Services;
+using IngaiaService02.Domain;
 
 namespace IngaiaService02.Api
 {
     public class Startup
     {
+
+        private  PropertyCategorySettings propertyCategorySettings;
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            propertyCategorySettings = configuration.GetSection("Api").Get<PropertyCategorySettings>();
         }
 
         public IConfiguration Configuration { get; }
@@ -29,6 +34,10 @@ namespace IngaiaService02.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddSingleton(typeof(PropertyCategorySettings), propertyCategorySettings);
+            services.AddScoped<IPropertyCategoryService, PropertyCategoryService>();
+            services.AddScoped<ICalculatePropertyValue, CalculatePropertyValue>();
 
             services.AddSwaggerGen(x =>
            {
