@@ -1,0 +1,13 @@
+version: "3.4"
+
+services:
+  myapi02:
+    container_name: myapi02
+    image: myapi02
+    environment:
+      - PORT=5033
+    ports:
+      - 5033:5033
+    build:
+      context: .
+      dockerfile: Dockerfile
