@@ -33,15 +33,24 @@ namespace IngaiaService01.Api
             services.AddTransient<IPropertyCategoryData, PropertyCategoryData>();
             services.AddControllers();
             services.AddSwaggerGen(x =>
-          {
-              x.SwaggerDoc("v1", new OpenApiInfo { Title = "Ingaia API", Version = "v1" });
-              var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-              var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-              if (File.Exists(xmlPath))
-                  x.IncludeXmlComments(xmlPath);
+                                          {
+                                              x.SwaggerDoc("v1", new OpenApiInfo { Title = "Ingaia API", Version = "v1" });
+                                              var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                                              var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                                              if (File.Exists(xmlPath))
+                                                  x.IncludeXmlComments(xmlPath);
 
-              x.EnableAnnotations();
-          });
+                                              x.EnableAnnotations();
+                                          });
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(builder =>
+                {
+                    builder.AllowAnyHeader()
+                        .AllowAnyMethod()
+                        .AllowAnyOrigin();
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

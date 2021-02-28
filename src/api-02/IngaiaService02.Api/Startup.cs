@@ -49,6 +49,16 @@ namespace IngaiaService02.Api
 
                x.EnableAnnotations();
            });
+
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(builder =>
+                {
+                    builder.AllowAnyHeader()
+                        .AllowAnyMethod()
+                        .AllowAnyOrigin();
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -71,6 +81,7 @@ namespace IngaiaService02.Api
                 x.RoutePrefix = string.Empty;
                 x.SwaggerEndpoint("/swagger/v1/swagger.json", "ingaia Teste");
             });
+
 
             app.UseEndpoints(endpoints =>
             {

@@ -12,10 +12,10 @@ namespace IngaiaService02.Api.Infra.Services
 
         public PropertyCategoryService(PropertyCategorySettings propertyCategorySettings)
         {
-            this.propertyCategorySettings = propertyCategorySettings;
+            this._propertyCategorySettings = propertyCategorySettings;
         }
 
-        public PropertyCategorySettings propertyCategorySettings { get; }
+        private readonly PropertyCategorySettings _propertyCategorySettings;
 
         /// <summary>
         /// Busca o valor padrão do metro quadrado
@@ -25,7 +25,7 @@ namespace IngaiaService02.Api.Infra.Services
         {
             try
             {
-                var resultApi = await (propertyCategorySettings.BaseUrl + "/PropertyCategory/default")
+                var resultApi = await (_propertyCategorySettings.BaseUrl + "/PropertyCategory/default")
                                           .GetJsonAsync<PropertyCategoryModel>();
                 return resultApi.Value;
             }
