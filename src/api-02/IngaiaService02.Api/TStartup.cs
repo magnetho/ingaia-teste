@@ -14,18 +14,19 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using System.IO;
 using IngaiaService02.Api.Infra.Services;
+using IngaiaService02.Api.Infra.Test;
 using IngaiaService02.Domain;
 
 namespace IngaiaService02.Api
 {
-    public class Startup
+    public class TStartup
     {
 
-        private  PropertyCategorySettings propertyCategorySettings;
-        public Startup(IConfiguration configuration)
+     
+        public TStartup(IConfiguration configuration)
         {
             Configuration = configuration;
-            propertyCategorySettings = configuration.GetSection("Api").Get<PropertyCategorySettings>();
+          
         }
 
         public IConfiguration Configuration { get; }
@@ -34,9 +35,7 @@ namespace IngaiaService02.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-
-            services.AddSingleton(typeof(PropertyCategorySettings), propertyCategorySettings);
-            services.AddScoped<IPropertyCategoryService, PropertyCategoryService>();
+            services.AddScoped<IPropertyCategoryService, PropertyCategoryServiceFake>();
             services.AddScoped<ICalculatePropertyValue, CalculatePropertyValue>();
 
             services.AddSwaggerGen(x =>
@@ -81,7 +80,6 @@ namespace IngaiaService02.Api
                 x.RoutePrefix = string.Empty;
                 x.SwaggerEndpoint("/swagger/v1/swagger.json", "ingaia Teste");
             });
-
 
             app.UseEndpoints(endpoints =>
             {

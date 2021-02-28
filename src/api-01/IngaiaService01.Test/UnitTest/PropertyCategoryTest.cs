@@ -1,6 +1,9 @@
 using System;
+using System.Net;
+using System.Threading.Tasks;
 using Bogus;
 using Bogus.Extensions.Brazil;
+using FluentAssertions;
 using IngaiaService01.Api.Controllers;
 using IngaiaService01.Data;
 using IngaiaService01.Domain;
@@ -12,38 +15,43 @@ namespace IngaiaService01.Test.UnitTest
     [Trait("Category", "Unit")]
     public class PropertyCategoryTest
     {
+     
 
-        private readonly Faker faker = new Faker();
+        public  PropertyCategoryTest()
+        {
+            _faker = new Faker();
+        }
+     
+
+        private readonly Faker _faker;
+
+
         [Fact]
         public void ConstructorShoulCreateValid()
         {
-            var expectedName = faker.Random.String();
-            var expectedValue = faker.Random.Double();
+            var expectedName = _faker.Random.String();
+            var expectedValue = _faker.Random.Double();
 
-            var propertycategory = new PropertyCategory(expectedValue, expectedName);
+            var propertyCategory = new PropertyCategory(expectedValue, expectedName);
 
-            Assert.Equal(expectedName, propertycategory.Name);
-            Assert.Equal(expectedName, propertycategory.Name);
+            Assert.Equal(expectedName, propertyCategory.Name);
+            Assert.Equal(expectedName, propertyCategory.Name);
 
         }
 
-
-
+        
         [Fact]
         public void DefaultValueValid()
         {
-            var expectedName = faker.Random.String();
-            var expectedValue = faker.Random.Double();
+            var expectedName = _faker.Random.String();
+            var expectedValue = _faker.Random.Double();
 
             var propertyCategoryData = new PropertyCategoryData();
-            var propertycategory = new PropertyCategory(expectedValue, expectedName);
-            propertyCategoryData.SetDefaultValue(propertycategory);
-            var propertycategoryController = new PropertyCategoryController(propertyCategoryData);
-                                 
-            var resultApi =  propertycategoryController.Get();
-            Assert.IsType<PropertyCategory>(resultApi);
-            Assert.Equal(expectedName, resultApi.Name);
-            Assert.Equal(expectedValue, resultApi.Value);           
+            var propertyCategory = new PropertyCategory(expectedValue, expectedName);
+            propertyCategoryData.SetDefaultValue(propertyCategory);
+
+            Assert.Equal(expectedName, propertyCategoryData.GeDefaultValue().Name);
+            Assert.Equal(expectedValue, propertyCategoryData.GeDefaultValue().Value);           
 
 
 

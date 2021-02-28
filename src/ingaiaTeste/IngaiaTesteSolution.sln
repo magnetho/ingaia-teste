@@ -15,13 +15,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IngaiaService02.Test", "..\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IngaiaService01.Api", "..\api-01\IngaiaService01.Api\IngaiaService01.Api.csproj", "{13B1BBE6-C692-4E90-9B21-3669AEDB490B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IngaiaService01.Domain", "..\api-01\IngaiaService01.Domain\IngaiaService01.Domain.csproj", "{99E1501D-FCDB-4FA6-A06C-22FA7EEB69D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IngaiaService01.Domain", "..\api-01\IngaiaService01.Domain\IngaiaService01.Domain.csproj", "{99E1501D-FCDB-4FA6-A06C-22FA7EEB69D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IngaiaService01.Data", "..\api-01\IngaiaService01.Data\IngaiaService01.Data.csproj", "{0F37BB55-9338-4D19-AE56-F41749A0320F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IngaiaService01.Data", "..\api-01\IngaiaService01.Data\IngaiaService01.Data.csproj", "{0F37BB55-9338-4D19-AE56-F41749A0320F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IngaiaService02.Data", "..\api-02\IngaiaService02.Data\IngaiaService02.Data.csproj", "{93250B16-1B38-4745-B00D-EC0599F60E32}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IngaiaService02.Domain", "..\api-02\IngaiaService02.Domain\IngaiaService02.Domain.csproj", "{E4C39CC2-A724-40A1-87E9-9D0AF34EDA4D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IngaiaService02.Domain", "..\api-02\IngaiaService02.Domain\IngaiaService02.Domain.csproj", "{E4C39CC2-A724-40A1-87E9-9D0AF34EDA4D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,10 +51,6 @@ Global
 		{0F37BB55-9338-4D19-AE56-F41749A0320F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F37BB55-9338-4D19-AE56-F41749A0320F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0F37BB55-9338-4D19-AE56-F41749A0320F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{93250B16-1B38-4745-B00D-EC0599F60E32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{93250B16-1B38-4745-B00D-EC0599F60E32}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{93250B16-1B38-4745-B00D-EC0599F60E32}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{93250B16-1B38-4745-B00D-EC0599F60E32}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E4C39CC2-A724-40A1-87E9-9D0AF34EDA4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E4C39CC2-A724-40A1-87E9-9D0AF34EDA4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E4C39CC2-A724-40A1-87E9-9D0AF34EDA4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -72,7 +66,6 @@ Global
 		{13B1BBE6-C692-4E90-9B21-3669AEDB490B} = {FAC6887E-27E8-499D-8062-5E892D3559CA}
 		{99E1501D-FCDB-4FA6-A06C-22FA7EEB69D3} = {FAC6887E-27E8-499D-8062-5E892D3559CA}
 		{0F37BB55-9338-4D19-AE56-F41749A0320F} = {FAC6887E-27E8-499D-8062-5E892D3559CA}
-		{93250B16-1B38-4745-B00D-EC0599F60E32} = {62DA0E95-0819-45D2-BD37-919E2AC51BD2}
 		{E4C39CC2-A724-40A1-87E9-9D0AF34EDA4D} = {62DA0E95-0819-45D2-BD37-919E2AC51BD2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
