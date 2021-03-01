@@ -20,15 +20,15 @@ Olá esse é foi projeto desenvolvido para conforme proposto, foi desenvolvido  
 | ------ | ------ |
 | Flurl | Request http |
 | Bogus | Gerador de dados fakes para teste|
-| Xunit | utilizado no processo de teste  |
-| Newtonsoft | Manipúlador de dados no formato json |
+| Xunit | Utilizado no processo de teste  |
+| Newtonsoft | Manipulador de dados no formato json |
 | Swashbuckle | Gerar documentação swagger  |
 
 
 
 |     |  |
 | ------ | ------ |
-| dotnet core 3.1  | crustrução das Apis |
+| dotnet core 3.1  | cronstrução das Apis |
 | Github | Repositorio |
 | Git | Versionamento de codigo  |
 | Docker  | Execução e Release do codigo |
