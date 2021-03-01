@@ -24,10 +24,10 @@ namespace IngaiaService02.Api.Controllers
 
 
         /// <summary>
-        /// 
+        /// Calcula o valor de um imovel com base na quantidade de metros enviados
         /// </summary>
-        /// <param name="meter"></param>
-        /// <returns></returns>
+        /// <param name="meter">Metro quadrado do imóvel</param>
+        /// <returns>Objeto com valor do imovel, metros quatrados e valor do metro</returns>
 
         [HttpGet("calculate")]
         public async Task<ActionResult<PropertyResult>> GetCalculatePropertyValueAsync([FromQuery] double meter)
@@ -40,7 +40,7 @@ namespace IngaiaService02.Api.Controllers
             }
             else
             {
-                return BadRequest("Valor informado inválido! envie algo entre 10 e 1000");
+                return BadRequest("Valor informado inválido! envie algo entre 10 e 10000");
 
             }
 

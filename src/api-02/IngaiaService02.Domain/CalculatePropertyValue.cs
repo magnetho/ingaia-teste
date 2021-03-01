@@ -31,7 +31,7 @@ namespace IngaiaService02.Domain
 
             }
 
-            throw new Exception("Valor informado inválido! envie algo entre 10 e 1000");
+            throw new Exception("Valor informado inválido! envie algo entre 10 e 10000");
 
 
         }

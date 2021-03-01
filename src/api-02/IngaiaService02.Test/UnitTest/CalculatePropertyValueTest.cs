@@ -51,7 +51,7 @@ namespace IngaiaService02.Test.UnitTest
             catch (Exception  exception)
             {
                 isSuccess = false;
-                Assert.Contains("Valor informado inválido! envie algo entre 10 e 1000", exception.Message);
+                Assert.Contains("Valor informado inválido! envie algo entre 10 e 10000", exception.Message);
             }
             
             Assert.False(isSuccess);
