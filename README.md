@@ -38,6 +38,8 @@ Olá esse é foi projeto desenvolvido para conforme proposto, foi desenvolvido  
 ## <a name="eprj"></a> Estrutura do projeto
 Apesar de ser um projeto relativamente simples, foi montado uma uma arquitetura para demostrar algumas conhecimentos de padrões adotados pela comunidade, Cada  Api foi montada 4 projetos Data, Domain, Api e test:
 
+![alt text](./doc/img/structure.png?raw=true)
+
 ### Data 
 Responsavel pela conexeção, e busca dos dasdos na base de dados. O data referencia apenas o Domain, Ma Api-01 ela é responsavel por buscar a informação do valor padrão do imovel. 
 ### Damain 
@@ -82,6 +84,8 @@ dorker-compose up
 Local: src\api-02
 dorker-compose up
 ```
+![alt text](./doc/img/container-docker.png?raw=true)
+
 Ou caso prefira pode pegar a imagem no proprio doker hub. Nesse modelo vc n precisa baixar o repositorio.  
 #### Api-01
 ```sh
@@ -103,6 +107,13 @@ Senha: Teste@2021
 
 ## <a name="ppr"></a> Pipeline e release
 Conforme acima mencionado, para subir o projeto para o servidor e atualizar a imagem no docker hub é utilizado o Azure devops. No devops foi criado 2 pipeline  "ingaia-api-01" e "ingaia-api-02" em ambos vai gerar as builder, teste e push da imagem para Docker Hub. Caso todos os passos seja executados com sucesso essas pipelines ficam disponiveis para Release, A qual executada envia para o Heroku. 
+
+![alt text](./doc/img/pipeline.png?raw=true)
+
+Abaixo strutura de release:
+
+![alt text](./doc/img/release.png?raw=true)
+
 
 ## <a name="cf"></a> Considerações finais
 
