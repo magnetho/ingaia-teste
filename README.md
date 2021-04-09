@@ -28,7 +28,7 @@ Olá esse é foi projeto desenvolvido para conforme proposto, foi desenvolvido  
 
 |     |  |
 | ------ | ------ |
-| dotnet core 3.1  | cronstrução das Apis |
+| dotnet core 3.1  | Construção das Apis |
 | Github | Repositorio |
 | Git | Versionamento de codigo  |
 | Docker  | Execução e Release do codigo |
