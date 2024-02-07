@@ -102,7 +102,7 @@ Foi criado um processo de pipeline e release do azure devops com mencionado acim
 ```sh
 Link Projeto: https://dev.azure.com/nethoadm/ingaia-teste
 Email: development-testing@outlook.com
-Senha: Teste@2021
+Senha: *****
 ```
 
 ## <a name="ppr"></a> Pipeline e release
